@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel con Fade y Puntos Debajo</title>
+
+  <style>
+    /* Contenedor del carrusel */
+    .carrusel-fade {
+      width: 100%;
+      height: 350px;
+      margin: 50px auto 10px; /* espacio para puntos debajo */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cada imagen ocupa todo el contenedor */
+    .carrusel-fade img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Imagen visible */
+    .carrusel-fade img.activo {
+      opacity: 1;
+    }
+
+    /* Puntos debajo del carrusel */
+    .puntos {
+      text-align: center;
+      margin-bottom: 30px; /* espacio inferior */
+    }
+
+    .puntos span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 3px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .puntos span.activo {
+      background: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carrusel-fade">
+    <!-- Imágenes -->
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/PORTADA.jpg" alt="Imagen 1" class="activo">
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/no2.jpg" alt="Imagen 2">
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/N_3_Rovaniemi.png" alt="Imagen 3">
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/no4_subida_nuevo.png" alt="Imagen 4">
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/MALTA-medio-superior.jpg" alt="Imagen 5">
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/Profesores.jpg" alt="Imagen 6">
+    <img src="https://portal.edu.gva.es/iesmarenostrum/wp-content/uploads/sites/1986/2024/06/no7.jpg" alt="Imagen 7">
+  </div>
+
+  <!-- Puntos debajo del carrusel -->
+  <div class="puntos"></div>
+
+  <script>
+    const carrusel = document.querySelector('.carrusel-fade');
+    const slides = carrusel.querySelectorAll('img');
+    const puntosContainer = document.querySelector('.puntos');
+
+    let indice = 0;
+
+    // Crear puntos dinámicamente según el número de imágenes
+    slides.forEach((slide, i) => {
+      const punto = document.createElement('span');
+      if(i === 0) punto.classList.add('activo');
+      punto.addEventListener('click', () => {
+        indice = i;
+        actualizarCarrusel();
+      });
+      puntosContainer.appendChild(punto);
+    });
+
+    const puntos = puntosContainer.querySelectorAll('span');
+
+    function actualizarCarrusel() {
+      slides.forEach(slide => slide.classList.remove('activo'));
+      slides[indice].classList.add('activo');
+      puntos.forEach(p => p.classList.remove('activo'));
+      puntos[indice].classList.add('activo');
+    }
+
+    // Cambio automático cada 10 segundos
+    setInterval(() => {
+      indice = (indice + 1) % slides.length;
+      actualizarCarrusel();
+    }, 10000);
+  </script>
+
+</body>
+</html>

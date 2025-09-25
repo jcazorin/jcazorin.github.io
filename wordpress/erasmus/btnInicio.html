@@ -8,11 +8,12 @@
 
     <style>
         .fl-button span {
-    font-family: "system-ui", "BlinkMacSystemFont", "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 100%;
-    font-style: inherit;
-    font-weight: inherit;
-}
+            font-family: "system-ui", "BlinkMacSystemFont", "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 100%;
+            font-style: inherit;
+            font-weight: inherit;
+        }
+
         a.fl-button.fl-button.escolar {
             background: #6ca906;
             border: 1px solid #ccc;
@@ -67,10 +68,185 @@
 
         .contenedor {
             display: flex;
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center;     /* Centra verticalmente */
+            justify-content: center;
+            /* Centra horizontalmente */
+            align-items: center;
+            /* Centra verticalmente */
+        }
+
+        .btn {
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+        }
+
+        .enlaceInfoES {
+            border-radius: 20px;
+            background-color: #6ca906;
+        }
+
+        .enlaceInfoES:hover {
+            background-color: #446805;
+        }
+
+        .enlaceInfoFP {
+            border-radius: 20px;
+            background-color: #292df0;
+        }
+
+        .enlaceInfoFP:hover {
+            background-color: #1A1C8F;
+        }
+
+        .enlaceInfoGS {
+            border-radius: 20px;
+            background-color: #ffc200;
+        }
+
+        .enlaceInfoGS:hover {
+            background-color: #D4A549;
+        }
+
+
+        a.fl-button.fl-button.escolar {
+            background: #6ca906
+        }
+
+        a.fl-button.fl-button.escolar:hover {
+            background: #446805
+        }
+
+        a.fl-button.fl-button.fp {
+            background: #292DF0
+        }
+
+        a.fl-button.fl-button.fp:hover {
+            background: #1A1C8F
+        }
+
+        a.fl-button.fl-button.es {
+            background: #ffc200
+        }
+
+        a.fl-button.fl-button.es:hover {
+            background: #D4A549
+        }
+
+        .dropdown {
+            position: absolute;
+            display: inline-block;
+            margin-top: 0.5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 175px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 14px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdownEnable:hover~.dropdown .dropdown-content {
+            display: block;
+        }
+
+        .dropdownEscolar {
+            border-radius: 5px;
+            background-color: #6ca906;
+        }
+
+        .dropdownEscolar a:hover {
+            background-color: #446805;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .dropdownEscolar a{
+            font-family: "system-ui", "BlinkMacSystemFont", "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 100%;
+            font-style: inherit;
+            font-weight: inherit;
+        }
+
+        .dropdownFP {
+            background-color: #292df0;
+        }
+
+        .dropdownFP a:hover {
+            background-color: #1A1C8F;
+            color: white;
+        }
+
+        .dropdownGS {
+            background-color: #ffc200;
+        }
+
+        .dropdownGS a:hover {
+            background-color: #D4A549;
+            color: white;
+        }
+
+        .btn:hover,
+        .dropdown:hover .btn {
+            background-color: #0b7dda;
+        }
+
+        .imagenPrincipal img {
+            border-radius: 20px;
+        }
+
+        .imagenPortada img {
+            height: 250px;
+        }
+
+        #titularErasmus h3 {
+            text-align: center;
+            font-size: 48px;
+        }
+
+        #imagenProyecto1 img,
+        #imagenProyecto2 img {
+            height: 379px;
+            scale: 0.75;
+        }
+
+        .textoCentrado {
+            text-align: justify;
+        }
+
+
+        @media (max-width: 1080px) {
+
+            #divEscolar,
+            #divFP,
+            #divSuperior {
+                width: 100% !important;
             }
-        
+        }
+
+        @media(max-width:768px) {
+            #titularErasmus h3 {
+                font-size: 40px;
+            }
+
+            .textoCentrado {
+                text-align: left;
+            }
+        }
     </style>
 
     <link href="fontawesome/css/fontawesome.css" rel="stylesheet" />
@@ -85,7 +261,46 @@
                 style="color:white"></i> <span style="color:white">Información general</span>
         </a>
     </div>
+
+    <div class="contenedor" style="margin-top:30px">
+        <div class="fl-module-content fl-node-content">
+            <div class="fl-html">
+                <div style="text-align:center">
+                    <a href="" class="fl-button escolar prevenirEnlace dropdownEnable" rel="noopener"
+                        style="color:white;">
+                        <i class="fas fa-pencil-alt" aria-hidden="true" style="color:white"></i>
+                        <span style="color:white">Nuestro blog</span>
+                    </a>
+
+                    <div class="dropdown">
+                        <div class="dropdown-content dropdownEscolar">
+                            <a href="https://erasmus-iesmarenostrumalicanteescolar.blogspot.com/"
+                                target="_blank">Proyectos actuales</a>
+                            <a id="enlaceEE" href="https://erasmus-iesmarenostrumalicanteescolar.blogspot.com/"
+                                target="_blank">Proyectos anteriores</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var enlaceEE = document.getElementById("enlaceEE");
+
+            if (enlaceEE != null) {
+                var anyoAnterior = new Date().getFullYear() - 1;
+                enlaceEE.href = enlaceEE.href + anyoAnterior;
+            }
+
+            var enlacesPrevenir = document.getElementsByClassName('prevenirEnlace');
+
+            for (var i = 0; i < enlacesPrevenir.length; i++) {
+                enlacesPrevenir[i].onclick = function (e) {
+                    e.preventDefault()
+                }
+            };
+        }, false);
 
     </script>
 

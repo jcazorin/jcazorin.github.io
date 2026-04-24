@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botón de inicio FP</title>
+    <title>Botón de inicio superior</title>
 
     <style>
         .fl-button span {
@@ -268,7 +268,7 @@
 
 <body>
     <div class="contenedor">
-        <a href="https://portal.edu.gva.es/iesmarenostrum/es/erasmus-principal/erasmus-formacion-profesional-informacion-adicional/" target="_top" class="fl-button fp" rel="noopener"
+        <a href="https://portal.edu.gva.es/iesmarenostrum/es/erasmus-principal/erasmus-educacion-superior-informacion-adicional/" target="_top" class="fl-button es" rel="noopener"
             style="color:white; border-radius:20px"><i class="fas fa-info-circle" aria-hidden="true"
                 style="color:white"></i> <span style="color:white">Información general</span>
         </a>
@@ -278,17 +278,17 @@
         <div class="fl-module-content fl-node-content">
             <div class="fl-html">
                 <div style="text-align:center">
-                    <a href="" class="fl-button fp prevenirEnlace dropdownEnable" rel="noopener"
+                    <a href="" class="fl-button es prevenirEnlace dropdownEnable" rel="noopener"
                         style="color:white;">
-                        <i class="fas fa-wrench" aria-hidden="true" style="color:white"></i>
+                        <i class="fas fa-graduation-cap" aria-hidden="true" style="color:white"></i>
                         <span style="color:white">Nuestro blog</span>
                     </a>
 
                     <div class="dropdown">
-                        <div class="dropdown-content dropdownFP">
-                            <a href="https://erasmus-iesmarenostrumalicantegm.blogspot.com/"
+                        <div class="dropdown-content dropdownGS">
+                            <a href="https://erasmus-iesmarenostrumalicante.blogspot.com/"
                                 target="_blank">Proyectos actuales</a>
-                            <a id="enlaceFP" href="https://erasmus-iesmarenostrumalicantegm.blogspot.com/"
+                            <a id="enlaceGS" href="https://erasmus-iesmarenostrumalicante.blogspot.com/"
                                 target="_blank">Proyectos anteriores</a>
                         </div>
                     </div>
@@ -298,12 +298,12 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            let enlaceFP = document.getElementById("enlaceFP");
+            let enlaceGS = document.getElementById("enlaceGS");
     
-            if(enlaceFP != null)
+            if(enlaceGS != null)
             {
                 let anyoAnterior = new Date().getFullYear()-1;
-                enlaceFP.href = enlaceFP.href + anyoAnterior;
+                enlaceGS.href = enlaceGS.href + anyoAnterior;
             }
 
             let enlacesPrevenir = document.getElementsByClassName('prevenirEnlace');
